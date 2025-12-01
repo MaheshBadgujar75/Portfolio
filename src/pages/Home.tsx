@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowDown, ExternalLink, Github } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+
 import SEO from "../components/SEO";
 import { PROJECTS, SKILLS } from "../../contants";
 

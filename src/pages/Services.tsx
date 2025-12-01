@@ -7,8 +7,6 @@ import {
   Zap,
   Server,
   Layers,
-  Cpu,
-  Globe,
   CheckCircle2,
 } from "lucide-react";
 import SEO from "../components/SEO";

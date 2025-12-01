@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Mail, ArrowUp, ArrowRight } from "lucide-react";
+import { Mail, ArrowUp, ArrowRight } from "lucide-react";
+import { LuGithub, LuLinkedin } from "react-icons/lu";
 import { SOCIAL_LINKS } from "../../contants";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -73,12 +74,12 @@ const Footer: React.FC = () => {
             <div className="flex gap-4">
               <SocialLink
                 href={SOCIAL_LINKS.github}
-                icon={<Github size={24} />}
+                icon={<LuGithub size={24} />}
                 label="Github"
               />
               <SocialLink
                 href={SOCIAL_LINKS.linkedin}
-                icon={<Linkedin size={24} />}
+                icon={<LuLinkedin size={24} />}
                 label="LinkedIn"
               />
               <SocialLink
@@ -141,7 +142,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end md:items-center pt-8 border-t border-white/5 relative">
           {/* Massive Background Watermark */}
           <div className="text-[12rem] md:text-[16rem] leading-none font-black text-white/[0.03] absolute bottom-[-40px] md:bottom-[-80px] left-1/2 -translate-x-1/2 pointer-events-none select-none z-0 whitespace-nowrap font-heading">
-            BADGUJAR
+            Lets Build
           </div>
 
           <div className="relative z-10 text-xs font-mono text-slate-600 uppercase tracking-wider">

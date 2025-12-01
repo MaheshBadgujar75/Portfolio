@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  ArrowUpRight,
-  Copy,
-  Check,
-  Clock,
-  Globe,
-} from "lucide-react";
+import { Mail, Phone, ArrowUpRight, Check, Clock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../components/SEO";
 import { SOCIAL_LINKS } from "../../contants";

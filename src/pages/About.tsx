@@ -1,16 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  Download,
-  Terminal,
-  Cpu,
-  Globe,
-  Zap,
-  Briefcase,
-  Award,
-  Code2,
-  ArrowRight,
-} from "lucide-react";
+import { Download, Terminal, Cpu, Globe, Zap } from "lucide-react";
 import SEO from "../components/SEO";
 import { SKILLS } from "../../contants";
 

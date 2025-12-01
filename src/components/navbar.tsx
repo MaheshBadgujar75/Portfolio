@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { NAV_ITEMS, SOCIAL_LINKS } from "../../contants";
+import { LuGithub, LuLinkedin } from "react-icons/lu";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -172,7 +173,7 @@ const Navbar: React.FC = () => {
                     rel="noreferrer"
                     className="text-white hover:text-primary transition-colors"
                   >
-                    <Github />
+                    <LuGithub />
                   </a>
                   <a
                     href={SOCIAL_LINKS.linkedin}
@@ -180,7 +181,7 @@ const Navbar: React.FC = () => {
                     rel="noreferrer"
                     className="text-white hover:text-primary transition-colors"
                   >
-                    <Linkedin />
+                    <LuLinkedin />
                   </a>
                   <a
                     href={`mailto:${SOCIAL_LINKS.email}`}

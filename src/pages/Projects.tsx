@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowUpRight, ArrowRight } from "lucide-react";
+import { LuGithub } from "react-icons/lu";
 import SEO from "../components/SEO";
 import { PROJECTS } from "../../contants";
 
@@ -99,7 +100,7 @@ const Projects: React.FC = () => {
                     href="#"
                     className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-110 transition-transform"
                   >
-                    <Github size={20} />
+                    <LuGithub size={20} />
                   </a>
                   <a
                     href="#"

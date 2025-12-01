@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import { Loader2 } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
 
 // Lazy load pages for better performance
