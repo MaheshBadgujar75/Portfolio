@@ -8,7 +8,6 @@ import { PROJECTS, SKILLS } from "../../contants";
 
 const Home: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
     <div
