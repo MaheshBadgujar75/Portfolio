@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
           {/* Right Actions */}
           <div className="flex items-center gap-2">
             <Link
-              to="/contact"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=badgujarm98@gmail.com"
               className={`hidden md:flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300
                    ${
                      isScrolled
