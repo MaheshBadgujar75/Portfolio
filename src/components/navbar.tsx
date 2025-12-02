@@ -33,10 +33,9 @@ const Navbar: React.FC = () => {
       >
         <div
           className={`pointer-events-auto transition-all duration-500 ease-[0.23,1,0.32,1] 
-            ${
-              isScrolled
-                ? "bg-zinc-950/90 backdrop-blur-2xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] py-2 px-3 scale-[0.95] origin-top-right"
-                : "bg-zinc-900/60 backdrop-blur-xl border-white/5 py-3 px-5 scale-100"
+            ${isScrolled
+              ? "bg-zinc-950/90 backdrop-blur-2xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] py-2 px-3 scale-[0.95] origin-top-right"
+              : "bg-zinc-900/60 backdrop-blur-xl border-white/5 py-3 px-5 scale-100"
             } 
             rounded-full border flex items-center gap-4 md:gap-6 group/nav`}
         >
@@ -55,9 +54,8 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative px-4 py-2 text-[11px] font-bold uppercase tracking-widest transition-colors hover:text-white ${
-                    isActive ? "text-white" : "text-slate-400"
-                  }`}
+                  className={`relative px-4 py-2 text-[11px] font-bold uppercase tracking-widest transition-colors hover:text-white ${isActive ? "text-white" : "text-slate-400"
+                    }`}
                 >
                   {isActive && (
                     <motion.div
@@ -81,18 +79,17 @@ const Navbar: React.FC = () => {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
-            <Link
+            <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=badgujarm98@gmail.com"
               className={`hidden md:flex items-center gap-2 px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300
-                   ${
-                     isScrolled
-                       ? "bg-white text-black hover:bg-primary hover:text-white"
-                       : "bg-primary text-white hover:bg-white hover:text-black"
-                   }
-                   `}
+      ${isScrolled
+                  ? "bg-white text-black hover:bg-primary hover:text-white"
+                  : "bg-primary text-white hover:bg-white hover:text-black"
+                }
+    `}
             >
               <span>Let's Talk</span>
-            </Link>
+            </a>
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
@@ -101,6 +98,7 @@ const Navbar: React.FC = () => {
               <Menu size={20} />
             </button>
           </div>
+
         </div>
       </motion.header>
 
@@ -146,11 +144,10 @@ const Navbar: React.FC = () => {
                       0{i + 1}
                     </span>
                     <span
-                      className={`text-5xl md:text-6xl font-heading font-bold tracking-tighter transition-all duration-300 ${
-                        location.pathname === item.path
-                          ? "text-white translate-x-4"
-                          : "text-slate-500 group-hover:text-white group-hover:translate-x-4"
-                      }`}
+                      className={`text-5xl md:text-6xl font-heading font-bold tracking-tighter transition-all duration-300 ${location.pathname === item.path
+                        ? "text-white translate-x-4"
+                        : "text-slate-500 group-hover:text-white group-hover:translate-x-4"
+                        }`}
                     >
                       {item.label}
                     </span>
