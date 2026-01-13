@@ -3,51 +3,59 @@ import { Link } from "react-router-dom";
 import { Mail, ArrowUp, ArrowRight } from "lucide-react";
 import { LuGithub, LuLinkedin } from "react-icons/lu";
 import { SOCIAL_LINKS } from "../../contants";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Memoized subcomponents
-const SocialLink = memo(({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noreferrer"
-    className="group relative w-16 h-16 bg-zinc-900 border border-white/10 rounded-full flex items-center justify-center text-white overflow-hidden hover:border-primary/50 transition-colors"
-    aria-label={label}
-  >
-    <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-    <div className="relative z-10 group-hover:text-white transition-colors group-hover:scale-110 duration-300">
-      {icon}
-    </div>
-  </a>
-));
+const SocialLink = memo(
+  ({
+    href,
+    icon,
+    label,
+  }: {
+    href: string;
+    icon: React.ReactNode;
+    label: string;
+  }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="group relative w-16 h-16 bg-zinc-900 border border-white/10 rounded-full flex items-center justify-center text-white overflow-hidden hover:border-primary/50 transition-colors"
+      aria-label={label}
+    >
+      <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+      <div className="relative z-10 group-hover:text-white transition-colors group-hover:scale-110 duration-300">
+        {icon}
+      </div>
+    </a>
+  )
+);
 SocialLink.displayName = "SocialLink";
 
-const FooterLink = memo(({ to, children }: { to: string; children: React.ReactNode }) => (
-  <li>
-    <Link
-      to={to}
-      className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors w-fit"
-    >
-      <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-      <span className="uppercase text-sm font-bold tracking-wider group-hover:translate-x-1 transition-transform duration-300">
-        {children}
-      </span>
-    </Link>
-  </li>
-));
+const FooterLink = memo(
+  ({ to, children }: { to: string; children: React.ReactNode }) => (
+    <li>
+      <Link
+        to={to}
+        className="group flex items-center gap-2 text-slate-400 hover:text-white transition-colors w-fit"
+      >
+        <span className="w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+        <span className="uppercase text-sm font-bold tracking-wider group-hover:translate-x-1 transition-transform duration-300">
+          {children}
+        </span>
+      </Link>
+    </li>
+  )
+);
 FooterLink.displayName = "FooterLink";
 
 // Animation variants (defined outside component to prevent recreation)
 const headingVariants = {
   hidden: { y: 100, opacity: 0 },
-  visible: { y: 0, opacity: 1 }
+  visible: { y: 0, opacity: 1 },
 };
 
 const Footer: React.FC = () => {
-  const { scrollYProgress } = useScroll();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const xTransform = useTransform(scrollYProgress, [0.5, 1], ["20%", "-20%"]);
-
   const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -70,7 +78,10 @@ const Footer: React.FC = () => {
         >
           {/* Repeat text to ensure seamless loop. Since text is huge, 4 copies is plenty. */}
           {[1, 2, 3, 4].map((_, i) => (
-            <div key={i} className="flex items-center gap-12 md:gap-24 pr-12 md:pr-24">
+            <div
+              key={i}
+              className="flex items-center gap-12 md:gap-24 pr-12 md:pr-24"
+            >
               <span className="text-[18vw] font-black font-heading text-white leading-none">
                 {marqueeText}
               </span>
@@ -197,8 +208,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="relative z-10 text-xs font-mono text-slate-600 uppercase tracking-wider">
-            © {currentYear} MAHESH BADGUJAR.{" "}
-            <br className="md:hidden" />{" "}
+            © {currentYear} MAHESH BADGUJAR. <br className="md:hidden" />{" "}
             <span className="hidden md:inline"> // </span> ALL RIGHTS RESERVED.
           </div>
 

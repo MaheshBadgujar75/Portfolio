@@ -111,11 +111,10 @@ const RevealText = ({
 }) => {
   const container: Variants = {
     hidden: { opacity: 0 },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    visible: (i = 1) => ({
+    visible: {
       opacity: 1,
       transition: { staggerChildren: 0.1, delayChildren: delay },
-    }),
+    },
   };
 
   const child: Variants = {
@@ -280,9 +279,9 @@ const Marquee = ({
         transition={{ repeat: Infinity, duration: speed, ease: "linear" }}
         className="flex gap-16 items-center pr-16"
       >
-        {[...items, ...items, ...items, ...items].map((item, i) => (
+        {[...items, ...items, ...items, ...items].map((item, index) => (
           <span
-            key={i}
+            key={index}
             className="text-4xl md:text-6xl font-heading font-bold text-white/20 hover:text-white transition-colors cursor-default uppercase"
           >
             {item}
