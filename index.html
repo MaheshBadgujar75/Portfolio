@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mahesh Badgujar | Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Mahesh Badgujar, a Full-Stack Developer & App Developer specialized in MERN, Android, and Automation."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+              heading: ["Space Grotesk", "sans-serif"],
+            },
+            colors: {
+              primary: "#FF0033", // Neon Red
+              secondary: "#99001F", // Dark Red
+              accent: "#FFFFFF", // White
+              dark: "#050505", // Pure Black
+              card: "#0A0A0A", // Almost Black
+            },
+            animation: {
+              blob: "blob 10s infinite",
+              "spin-slow": "spin 15s linear infinite",
+              marquee: "marquee 25s linear infinite",
+              "marquee-reverse": "marquee-reverse 25s linear infinite",
+              "pulse-fast": "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              glitch: "glitch 1s linear infinite",
+            },
+            keyframes: {
+              blob: {
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                "100%": { transform: "translate(0px, 0px) scale(1)" },
+              },
+              marquee: {
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-100%)" },
+              },
+              "marquee-reverse": {
+                "0%": { transform: "translateX(-100%)" },
+                "100%": { transform: "translateX(0%)" },
+              },
+              glitch: {
+                "2%, 64%": { transform: "translate(2px,0) skew(0deg)" },
+                "4%, 60%": { transform: "translate(-2px,0) skew(0deg)" },
+                "62%": { transform: "translate(0,0) skew(5deg)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 0px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ff0033;
+      }
+
+      /* Noise Texture */
+      .bg-noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 40;
+        opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      /* Cursor Styles */
+      body {
+        cursor: none;
+      }
+      .cursor-dot,
+      .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 9999;
+        pointer-events: none;
+      }
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #ff0033;
+      }
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 0, 51, 0.5);
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+      }
+
+      /* Hover states for cursor */
+      body:has(a:hover) .cursor-outline,
+      body:has(button:hover) .cursor-outline,
+      body:has(.bento-card:hover) .cursor-outline {
+        width: 80px;
+        height: 80px;
+        background-color: rgba(255, 0, 51, 0.1);
+        border-color: #ff0033;
+      }
+
+      /* Bento Grid Utilities */
+      .bento-card {
+        background: rgba(10, 10, 10, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .bento-card:hover {
+        border-color: rgba(255, 0, 51, 0.5);
+        box-shadow: 0 0 40px -10px rgba(255, 0, 51, 0.2);
+        z-index: 10;
+      }
+
+      .text-glow {
+        text-shadow: 0 0 20px rgba(255, 0, 51, 0.8);
+      }
+
+      /* Selection Color */
+      ::selection {
+        background-color: #ff0033;
+        color: #ffffff;
+      }
+
+      /* Utilities */
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+          "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+          "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+          "react-hook-form": "https://aistudiocdn.com/react-hook-form@^7.67.0"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="bg-dark text-slate-300 antialiased overflow-x-hidden">
+    <div class="bg-noise"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
