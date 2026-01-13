@@ -45,6 +45,7 @@ const headingVariants = {
 
 const Footer: React.FC = () => {
   const { scrollYProgress } = useScroll();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const xTransform = useTransform(scrollYProgress, [0.5, 1], ["20%", "-20%"]);
 
   const scrollToTop = useCallback(() => {

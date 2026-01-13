@@ -6,6 +6,15 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import SEO from "../components/SEO";
 import { PROJECTS, SKILLS } from "../../contants";
 
+interface Project {
+  id: string | number;
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  technologies: string[];
+}
+
 const Home: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -87,7 +96,7 @@ const HeroSection = () => {
         >
           <div className="overflow-visible py-2">
             <SlicedText className="text-[13vw] md:text-[10vw] leading-none">
-              FULL STACK <span className="text-primary">.</span>
+              FULL STACK
             </SlicedText>
           </div>
 
@@ -216,11 +225,14 @@ const IntroSection = () => {
 
 // --- STACKED PROJECTS SECTION ---
 const StackedProjects = () => {
-  const container = useRef(null);
+  const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
+
+  // Type guard to ensure PROJECTS is an array of Project type
+  const projects: Project[] = PROJECTS as Project[];
 
   return (
     <section ref={container} className="relative px-4 pb-20 max-w-7xl mx-auto">
@@ -233,8 +245,8 @@ const StackedProjects = () => {
         </h2>
       </div>
 
-      {PROJECTS.slice(0, 4).map((project, i) => {
-        const targetScale = 1 - (PROJECTS.slice(0, 4).length - i) * 0.05;
+      {projects.slice(0, 4).map((project, i) => {
+        const targetScale = 1 - (projects.slice(0, 4).length - i) * 0.05;
         return (
           <Card
             key={project.id}
@@ -261,7 +273,7 @@ const StackedProjects = () => {
 
 interface CardProps {
   i: number;
-  project: any;
+  project: Project;
   progress: MotionValue<number>;
   range: number[];
   targetScale: number;
@@ -274,7 +286,7 @@ const Card: React.FC<CardProps> = ({
   range,
   targetScale,
 }) => {
-  const container = useRef(null);
+  const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "start start"],
@@ -353,6 +365,20 @@ const Card: React.FC<CardProps> = ({
 
 // --- TECH TICKER ---
 const TechTicker = () => {
+  // Type guard for SKILLS
+  const skills = SKILLS as {
+    frontend: string[];
+    backend: string[];
+    [key: string]: string[];
+  };
+
+  const allSkills = [
+    ...skills.frontend,
+    ...skills.backend,
+    ...skills.frontend,
+    ...skills.backend,
+  ];
+
   return (
     <section className="py-20 border-y border-white/5 bg-black overflow-hidden relative">
       <div className="absolute inset-0 bg-primary/5 blur-3xl opacity-20 pointer-events-none"></div>
@@ -362,13 +388,8 @@ const TechTicker = () => {
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           className="flex gap-16 items-center pr-16"
         >
-          {[
-            ...SKILLS.frontend,
-            ...SKILLS.backend,
-            ...SKILLS.frontend,
-            ...SKILLS.backend,
-          ].map((skill, i) => (
-            <div key={i} className="flex items-center gap-4">
+          {allSkills.map((skill, i) => (
+            <div key={`${skill}-${i}`} className="flex items-center gap-4">
               <span className="w-2 h-2 bg-primary rounded-full"></span>
               <span className="text-4xl md:text-6xl font-heading font-bold text-white/10 hover:text-white transition-colors cursor-default uppercase">
                 {skill}
